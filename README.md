@@ -6,7 +6,7 @@ The PubNub River plugin allows PubNub content to be indexed by ElasticSearch.
 In order to install the plugin, simply run: `bin/plugin -install sunnygleason/elasticsearch-pubnub-river/0.0.1`.
 
     --------------------------------------
-    | St9 Plugin | ElasticSearch         |
+    | PubNub Plugin   | ElasticSearch    |
     --------------------------------------
     | master          | 1.3.4 -> master  |
     --------------------------------------
