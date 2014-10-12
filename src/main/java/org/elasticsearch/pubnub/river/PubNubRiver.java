@@ -26,6 +26,7 @@ import org.elasticsearch.action.bulk.BulkItemResponse;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.index.IndexRequest.OpType;
 import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.base.Throwables;
@@ -210,6 +211,12 @@ public class PubNubRiver extends AbstractRiverComponent implements River {
 
             if ("create".equals(action) || "update".equals(action)) {
               IndexRequestBuilder theReq = new IndexRequestBuilder(client);
+
+              if ("create".equals(action)) {
+                theReq.setOpType(OpType.CREATE);
+              } else {
+                theReq.setOpType(OpType.INDEX);
+              }
 
               theReq.setIndex(index);
               theReq.setId(id);
